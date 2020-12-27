@@ -10,7 +10,7 @@ GOTO END
 
 :STARTSERVER
 tasklist /fi "imagename eq mysqld.exe" |find ":" > nul
-if errorlevel 1 echo MySql Already Running
+if errorlevel 1 echo MySql Already Running && GOTO END
 if errorlevel 0 sconsole.exe mysqld --console && echo MySql started
 
 tasklist /fi "imagename eq nginx.exe" |find ":" > nul

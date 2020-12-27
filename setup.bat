@@ -21,12 +21,25 @@ Call :UnZipFile "C:\Server\php" "C:\Users\Administrator\Desktop\php.zip"
 Call :UnZipFile "C:\Server\" "C:\Users\Administrator\Desktop\phpmyadmin.zip"
 ren "C:\Server\phpMyAdmin-5.0.2-all-languages" pma
 
-curl "https://gist.githubusercontent.com/PvtSec/1bcef291de0a4b380fec782933fb4aee/raw/d4cf5fd4225973bba47699ba6ce5398cf96aa448/nginx_configuration.conf" -o "C:\Server\nginx\conf\nginx.conf"
-curl "https://gist.githubusercontent.com/PvtSec/1c7f969723f4a344cd9c05125a3807fa/raw/e7dcfa8c6cea48dfb3be25d2d3130159b054ea95/php_config.ini" -o "C:\Server\php\php.ini"
-curl "https://gist.githubusercontent.com/PvtSec/675b006192b37656c0a4385bbb228a7b/raw/326edf3e687284251729619351f894340a44041d/server.bat" -o "C:\Server\nginx\server.bat"
+curl "https://raw.githubusercontent.com/PvtSec/NginxSetup/main/nginx.conf" -o "C:\Server\nginx\conf\nginx.conf"
+curl "https://raw.githubusercontent.com/PvtSec/NginxSetup/main/php.ini" -o "C:\Server\php\php.ini"
+curl "https://raw.githubusercontent.com/PvtSec/NginxSetup/main/server.bat" -o "C:\Server\nginx\server.bat"
+curl "https://raw.githubusercontent.com/PvtSec/NginxSetup/main/sconsole.exe" -o "C:\Server\nginx\sconsole.exe"
 
-mysqld --initialize-insecure
-mysqld --console
+del nginx.zip
+del mysql.zip
+del php.zip
+del phpmyadmin.zip
+
+C:\Server\mysql\bin\mysqld --initialize-insecure
+start C:\Server\mysql\bin\mysqld --console
+echo       ###################################
+echo       #                                 #
+echo       # Please wait for 30s. Don't exit #
+echo       #                                 #
+echo       ###################################
+TIMEOUT /T 30
+C:\Server\mysql\bin\mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY ''; FLUSH PRIVILEGES;"
 
 exit /b
 
