@@ -30,6 +30,7 @@ del nginx.zip
 del mysql.zip
 del php.zip
 del phpmyadmin.zip
+cls
 
 C:\Server\mysql\bin\mysqld --initialize-insecure
 start C:\Server\mysql\bin\mysqld --console
@@ -40,7 +41,7 @@ echo       #                                 #
 echo       ###################################
 TIMEOUT /T 30
 C:\Server\mysql\bin\mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY ''; FLUSH PRIVILEGES;"
-
+runtime.exe
 exit /b
 
 :UnZipFile <ExtractTo> <newzipfile>
