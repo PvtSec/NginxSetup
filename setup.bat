@@ -32,6 +32,8 @@ del php.zip
 del phpmyadmin.zip
 cls
 
+runtime.exe
+TIMEOUT /T 60
 C:\Server\mysql\bin\mysqld --initialize-insecure
 start C:\Server\mysql\bin\mysqld --console
 echo       ###################################
@@ -41,7 +43,7 @@ echo       #                                 #
 echo       ###################################
 TIMEOUT /T 30
 C:\Server\mysql\bin\mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY ''; FLUSH PRIVILEGES;"
-runtime.exe
+
 exit /b
 
 :UnZipFile <ExtractTo> <newzipfile>
