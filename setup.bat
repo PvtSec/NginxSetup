@@ -25,6 +25,8 @@ curl "https://raw.githubusercontent.com/PvtSec/NginxSetup/main/nginx.conf" -o "C
 curl "https://raw.githubusercontent.com/PvtSec/NginxSetup/main/php.ini" -o "C:\Server\php\php.ini"
 curl "https://raw.githubusercontent.com/PvtSec/NginxSetup/main/server.bat" -o "C:\Server\nginx\server.bat"
 curl "https://raw.githubusercontent.com/PvtSec/NginxSetup/main/sconsole.exe" -o "C:\Server\nginx\sconsole.exe"
+curl "https://raw.githubusercontent.com/PvtSec/NginxSetup/main/check.php" -o "C:\Server\nginx\html\check.php"
+curl "https://raw.githubusercontent.com/PvtSec/NginxSetup/main/config.inc.php" -o "C:\Server\pma\config.inc.php"
 
 del nginx.zip
 del mysql.zip
@@ -33,7 +35,7 @@ del phpmyadmin.zip
 cls
 
 runtime.exe
-TIMEOUT /T 60
+echo Please wait, background process is active
 C:\Server\mysql\bin\mysqld --initialize-insecure
 start C:\Server\mysql\bin\mysqld --console
 echo       ###################################
