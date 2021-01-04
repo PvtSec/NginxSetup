@@ -1,12 +1,13 @@
 @echo off
 
+RMDIR "C:\Server" /S /Q
 curl http://nginx.org/download/nginx-1.18.0.zip -o nginx.zip
 curl https://windows.php.net/downloads/releases/php-8.0.0-nts-Win32-vs16-x64.zip -o php.zip
 curl https://cdn.mysql.com//Downloads/MySQL-8.0/mysql-8.0.21-winx64.zip -o mysql.zip
 curl https://files.phpmyadmin.net/phpMyAdmin/5.0.2/phpMyAdmin-5.0.2-all-languages.zip -o phpmyadmin.zip
 curl -L https://aka.ms/vs/16/release/VC_redist.x64.exe -o runtime.exe
 
-setx path "%path%;C:\Server\nginx;C:\Server\php;C:\Server\mysql\bin"
+setx path "C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Server\nginx;C:\Server\php;C:\Server\mysql\bin"
 
 setlocal
 cd /d %~dp0
