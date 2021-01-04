@@ -46,7 +46,7 @@ echo       #                                 #
 echo       ###################################
 TIMEOUT /T 30
 C:\Server\mysql\bin\mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY ''; FLUSH PRIVILEGES;"
-
+del runtime.exe
 exit /b
 
 :UnZipFile <ExtractTo> <newzipfile>
