@@ -36,6 +36,7 @@ del phpmyadmin.zip
 cls
 
 runtime.exe
+echo Background task running, Please wait
 C:\Server\mysql\bin\mysqld --initialize-insecure
 start C:\Server\mysql\bin\mysqld --console
 echo       ###################################
